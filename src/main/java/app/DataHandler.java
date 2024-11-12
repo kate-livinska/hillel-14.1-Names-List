@@ -1,7 +1,6 @@
 package app;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class DataHandler {
 
@@ -16,10 +15,11 @@ public class DataHandler {
 
     public String formListOutput(List<String> list) {
         StringBuilder sb = new StringBuilder();
-        AtomicInteger count = new AtomicInteger(1);
+        int counter = 0;
         for (String name : list) {
-            sb.append(String.format("%d) %s\n",
-                    count.getAndIncrement(), name));
+            counter++;
+            sb.append(String.format("%d) %s%n",
+                    counter, name));
         }
         return "\nNames:\n" + sb;
     }
